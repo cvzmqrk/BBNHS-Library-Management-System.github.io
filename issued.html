@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBNHS Library - Issued Books</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>BBNHSLibrary</h1>
+        <div class="menu-icon">☰</div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="user-profile">
+            <div class="avatar">👤</div>
+            <div class="user-info">
+                <h3>Mark Lester</h3>
+                <div class="user-role">Librarian</div>
+                <div class="status">Online</div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">HEADER</div>
+            <a href="index.html" class="nav-item">
+                <i>📊</i> Dashboard
+            </a>
+            <a href="members.html" class="nav-item">
+                <i>👥</i> Members
+            </a>
+            <a href="issued.html" class="nav-item">
+                <i>⚠️</i> Issued
+            </a>
+            <a href="returned.html" class="nav-item">
+                <i>✅</i> Returned
+            </a>
+            <a href="not-returned.html" class="nav-item">
+                <i>❌</i> Not Returned
+            </a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">ACTIONS</div>
+            <a href="settings.html" class="nav-item">
+                <i>⚙️</i> Settings
+            </a>
+        </div>
+    </div>
+
+    <!-- Issued Books Page -->
+    <div class="books-page">
+        <div class="books-header">
+            <h2>✈️ Issued Items (Currently Borrowed)</h2>
+            <a href="index.html" class="btn-back">← Back to Dashboard</a>
+        </div>
+
+        <div class="search-section">
+            <h3>Search Issued Books</h3>
+            <input type="text" class="search-input" id="searchIssuedInput" placeholder="Search by book title, borrower name, ID...">
+        </div>
+
+        <div class="books-list">
+            <h3>All Currently Issued Books (8 books)</h3>
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Book Title</th>
+                        <th>Borrower Name</th>
+                        <th>Member ID</th>
+                        <th>Member Type</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                        <th>Days Left</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#TR2024001</td>
+                        <td>Advanced Algebra</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>S2024001</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Feb 20, 2024</td>
+                        <td>Mar 15, 2024</td>
+                        <td><span class="days-left good">18 days</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024001')">Return</button>
+                            <button class="btn-action-secondary" onclick="renewItem('#TR2024001')">Renew</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#TR2024002</td>
+                        <td>World History: Modern Era</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>S2024001</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Feb 18, 2024</td>
+                        <td>Mar 20, 2024</td>
+                        <td><span class="days-left good">23 days</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024002')">Return</button>
+                            <button class="btn-action-secondary" onclick="renewItem('#TR2024002')">Renew</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#TR2024003</td>
+                        <td>English Grammar in Use</td>
+                        <td>Maria Santos</td>
+                        <td>S2024002</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Jan 20, 2024</td>
+                        <td>Feb 20, 2024</td>
+                        <td><span class="days-left overdue">-7 days</span></td>
+                        <td><span class="status-badge overdue">Overdue</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024003')">Return</button>
+                            <button class="btn-action-secondary" disabled>Renew</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#TR2024004</td>
+                        <td>Biology: The Living World</td>
+                        <td>Prof. Robert Garcia</td>
+                        <td>T2024001</td>
+                        <td><span class="badge teacher">Teacher</span></td>
+                        <td>Feb 15, 2024</td>
+                        <td>Apr 01, 2024</td>
+                        <td><span class="days-left good">35 days</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024004')">Return</button>
+                            <button class="btn-action-secondary" onclick="renewItem('#TR2024004')">Renew</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#TR2024005</td>
+                        <td>Kasaysayan ng Pilipinas</td>
+                        <td>Prof. Robert Garcia</td>
+                        <td>T2024001</td>
+                        <td><span class="badge teacher">Teacher</span></td>
+                        <td>Feb 12, 2024</td>
+                        <td>Mar 30, 2024</td>
+                        <td><span class="days-left good">33 days</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024005')">Return</button>
+                            <button class="btn-action-secondary" onclick="renewItem('#TR2024005')">Renew</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#TR2024006</td>
+                        <td>English Grammar in Use</td>
+                        <td>Ms. Anna Lim</td>
+                        <td>T2024002</td>
+                        <td><span class="badge teacher">Teacher</span></td>
+                        <td>Feb 25, 2024</td>
+                        <td>Mar 28, 2024</td>
+                        <td><span class="days-left good">31 days</span></td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024006')">Return</button>
+                            <button class="btn-action-secondary" onclick="renewItem('#TR2024006')">Renew</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#TR2024007</td>
+                        <td>Biology: The Living World</td>
+                        <td>Lisa Fernandez</td>
+                        <td>S2024004</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Jan 10, 2024</td>
+                        <td>Feb 10, 2024</td>
+                        <td><span class="days-left overdue">-17 days</span></td>
+                        <td><span class="status-badge overdue">Overdue</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024007')">Return</button>
+                            <button class="btn-action-secondary" disabled>Renew</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#TR2024008</td>
+                        <td>World History: Modern Era</td>
+                        <td>Lisa Fernandez</td>
+                        <td>S2024004</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Jan 15, 2024</td>
+                        <td>Feb 15, 2024</td>
+                        <td><span class="days-left overdue">-12 days</span></td>
+                        <td><span class="status-badge overdue">Overdue</span></td>
+                        <td>
+                            <button class="btn-action" onclick="processReturn('#TR2024008')">Return</button>
+                            <button class="btn-action-secondary" disabled>Renew</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert-section">
+            <h3>📊 Circulation Statistics</h3>
+            <div class="profile-info">
+                <div class="info-item">
+                    <div class="info-label">Total Books Issued</div>
+                    <div class="info-value" style="color: #3498db;">8 books</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Currently On Time</div>
+                    <div class="info-value" style="color: #2ecc71;">5 books</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Overdue Books</div>
+                    <div class="info-value" style="color: #e74c3c;">3 books</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Due This Week</div>
+                    <div class="info-value" style="color: #f39c12;">2 books</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Active Borrowers</div>
+                    <div class="info-value" style="color: #2ecc71;">5 members</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Average Loan Period</div>
+                    <div class="info-value" style="color: #9b59b6;">21 days</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">
+        Activate Windows<br>
+        Go to Settings to activate Windows
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

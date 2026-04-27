@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBNHS Library - Members</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>BBNHSLibrary</h1>
+        <div class="menu-icon">☰</div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="user-profile">
+            <div class="avatar">👤</div>
+            <div class="user-info">
+                <h3>Mark Lester</h3>
+                <div class="user-role">Librarian</div>
+                <div class="status">Online</div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">HEADER</div>
+            <a href="index.html" class="nav-item">
+                <i>📊</i> Dashboard
+            </a>
+            <a href="members.html" class="nav-item active">
+                <i>👥</i> Members
+            </a>
+            <a href="books.html" class="nav-item">
+                <i>📚</i> Books
+            </a>
+            <a href="issued.html" class="nav-item">
+                <i>⚠️</i> Issued
+            </a>
+            <a href="returned.html" class="nav-item">
+                <i>✅</i> Returned
+            </a>
+            <a href="not-returned.html" class="nav-item">
+                <i>❌</i> Not Returned
+            </a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">ACTIONS</div>
+            <a href="settings.html" class="nav-item">
+                <i>⚙️</i> Settings
+            </a>
+        </div>
+    </div>
+
+    <!-- Members Page -->
+    <div class="books-page">
+        <div class="books-header">
+            <h2>👥 Library Members</h2>
+            <a href="index.html" class="btn-back">← Back to Dashboard</a>
+        </div>
+
+        <div class="search-section">
+            <h3>Search Members</h3>
+            <input type="text" class="search-input" id="searchMemberInput" placeholder="Search by name, ID, or status...">
+        </div>
+
+        <div class="categories-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="category-card" onclick="filterMembers('student')">
+                <div class="category-icon">🎓</div>
+                <h4>Students</h4>
+                <p class="book-count">45 members</p>
+            </div>
+
+            <div class="category-card" onclick="filterMembers('teacher')">
+                <div class="category-icon">👨‍🏫</div>
+                <h4>Teachers</h4>
+                <p class="book-count">12 members</p>
+            </div>
+        </div>
+
+        <div class="books-list">
+            <h3>All Members</h3>
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Borrowed Books</th>
+                        <th>Fines</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S2024001</td>
+                        <td>Juan Dela Cruz</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>2 books</td>
+                        <td>₱0.00</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td><button class="btn-small" onclick="viewMemberProfile('S2024001', 'student')">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>S2024002</td>
+                        <td>Maria Santos</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>1 book</td>
+                        <td>₱50.00</td>
+                        <td><span class="status-badge warning">Has Fines</span></td>
+                        <td><button class="btn-small" onclick="viewMemberProfile('S2024002', 'student')">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>T2024001</td>
+                        <td>Prof. Robert Garcia</td>
+                        <td><span class="badge teacher">Teacher</span></td>
+                        <td>3 books</td>
+                        <td>₱0.00</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td><button class="btn-small" onclick="viewMemberProfile('T2024001', 'teacher')">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>S2024003</td>
+                        <td>Pedro Reyes</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>0 books</td>
+                        <td>₱0.00</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td><button class="btn-small" onclick="viewMemberProfile('S2024003', 'student')">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>T2024002</td>
+                        <td>Ms. Anna Lim</td>
+                        <td><span class="badge teacher">Teacher</span></td>
+                        <td>1 book</td>
+                        <td>₱0.00</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td><button class="btn-small" onclick="viewMemberProfile('T2024002', 'teacher')">View Profile</button></td>
+                    </tr>
+                    <tr>
+                        <td>S2024004</td>
+                        <td>Lisa Fernandez</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>2 books</td>
+                        <td>₱120.00</td>
+                        <td><span class="status-badge overdue">Overdue</span></td>
+                        <td><button class="btn-small" onclick="viewMemberProfile('S2024004', 'student')">View Profile</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Member Profile Modal -->
+    <div class="modal" id="memberModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Member Profile</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Profile content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">
+        Activate Windows<br>
+        Go to Settings to activate Windows
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
