@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBNHS Library - Not Returned Books</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>BBNHSLibrary</h1>
+        <div class="menu-icon">☰</div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="user-profile">
+            <div class="avatar">👤</div>
+            <div class="user-info">
+                <h3>Mark Lester</h3>
+                <div class="user-role">Librarian</div>
+                <div class="status">Online</div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">HEADER</div>
+            <a href="index.html" class="nav-item">
+                <i>📊</i> Dashboard
+            </a>
+            <a href="members.html" class="nav-item">
+                <i>👥</i> Members
+            </a>
+            <a href="books.html" class="nav-item">
+                <i>📚</i> Books
+            </a>
+            <a href="issued.html" class="nav-item">
+                <i>⚠️</i> Issued
+            </a>
+            <a href="returned.html" class="nav-item">
+                <i>✅</i> Returned
+            </a>
+            <a href="not-returned.html" class="nav-item">
+                <i>❌</i> Not Returned
+            </a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">ACTIONS</div>
+            <a href="settings.html" class="nav-item">
+                <i>⚙️</i> Settings
+            </a>
+        </div>
+    </div>
+
+    <!-- Not Returned Books Page -->
+    <div class="books-page">
+        <div class="books-header">
+            <h2>👎 Not Returned Books (Overdue)</h2>
+            <a href="index.html" class="btn-back">← Back to Dashboard</a>
+        </div>
+
+        <div class="search-section">
+            <h3>Search Overdue Books</h3>
+            <input type="text" class="search-input" id="searchNotReturnedInput" placeholder="Search by book title, borrower name, or date...">
+        </div>
+
+        <div class="books-list">
+            <h3>All Overdue Books</h3>
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Borrower Name</th>
+                        <th>Member Type</th>
+                        <th>Date Borrowed</th>
+                        <th>Due Date</th>
+                        <th>Days Overdue</th>
+                        <th>Fine Amount</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>English Grammar in Use</td>
+                        <td>Maria Santos</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Jan 20, 2024</td>
+                        <td>Feb 20, 2024</td>
+                        <td><span class="overdue-days">7 days</span></td>
+                        <td><span class="fine-amount">₱50.00</span></td>
+                        <td><button class="btn-contact" onclick="contactMember('S2024002')">Contact</button></td>
+                    </tr>
+                    <tr>
+                        <td>Biology: The Living World</td>
+                        <td>Lisa Fernandez</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Jan 10, 2024</td>
+                        <td>Feb 10, 2024</td>
+                        <td><span class="overdue-days">17 days</span></td>
+                        <td><span class="fine-amount">₱120.00</span></td>
+                        <td><button class="btn-contact" onclick="contactMember('S2024004')">Contact</button></td>
+                    </tr>
+                    <tr>
+                        <td>World History: Modern Era</td>
+                        <td>Lisa Fernandez</td>
+                        <td><span class="badge student">Student</span></td>
+                        <td>Jan 15, 2024</td>
+                        <td>Feb 15, 2024</td>
+                        <td><span class="overdue-days">12 days</span></td>
+                        <td><span class="fine-amount">₱120.00</span></td>
+                        <td><button class="btn-contact" onclick="contactMember('S2024004')">Contact</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert-section">
+            <h3>⚠️ Overdue Summary</h3>
+            <div class="profile-info">
+                <div class="info-item">
+                    <div class="info-label">Total Overdue Books</div>
+                    <div class="info-value" style="color: #e74c3c;">3 books</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Total Fines Pending</div>
+                    <div class="info-value" style="color: #e74c3c;">₱290.00</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Members with Overdue</div>
+                    <div class="info-value" style="color: #e74c3c;">2 members</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Average Days Overdue</div>
+                    <div class="info-value" style="color: #e74c3c;">12 days</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">
+        Activate Windows<br>
+        Go to Settings to activate Windows
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBNHS Library - Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>BBNHSLibrary</h1>
+        <div class="menu-icon">☰</div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="user-profile">
+            <div class="avatar">👤</div>
+            <div class="user-info">
+                <h3>Mark Lester</h3>
+                <div class="user-role">Librarian</div>
+                <div class="status">Online</div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">HEADER</div>
+            <a href="index.html" class="nav-item">
+                <i>📊</i> Dashboard
+            </a>
+            <a href="members.html" class="nav-item">
+                <i>👥</i> Members
+            </a>
+            <a href="books.html" class="nav-item">
+                <i>📚</i> Books
+            </a>
+            <a href="issued.html" class="nav-item">
+                <i>✈️</i> Issued
+            </a>
+            <a href="returned.html" class="nav-item">
+                <i>👍</i> Returned
+            </a>
+            <a href="not-returned.html" class="nav-item">
+                <i>👎</i> Not Returned
+            </a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-header">ACTIONS</div>
+            <a href="settings.html" class="nav-item active">
+                <i>⚙️</i> Settings
+            </a>
+        </div>
+    </div>
+
+    <!-- Settings Page -->
+    <div class="books-page">
+        <div class="books-header">
+            <h2>⚙️ Settings</h2>
+            <a href="index.html" class="btn-back">← Back to Dashboard</a>
+        </div>
+
+        <div class="settings-container">
+            <!-- Profile Section -->
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <h3>👤 My Profile</h3>
+                </div>
+                <div class="settings-card-body">
+                    <div class="profile-display">
+                        <div class="profile-avatar-large">
+                            <div class="avatar-circle">👤</div>
+                            <button class="btn-change-photo">Change Photo</button>
+                        </div>
+                        <div class="profile-details">
+                            <div class="profile-field">
+                                <label>Full Name</label>
+                                <input type="text" id="profileName" value="Mark Lester Cano" class="profile-input">
+                            </div>
+                            <div class="profile-field">
+                                <label>Role</label>
+                                <input type="text" value="Librarian" class="profile-input" disabled>
+                            </div>
+                            <div class="profile-field">
+                                <label>Email Address</label>
+                                <input type="email" id="profileEmail" value="MarkLester.Cano@bbnhs.edu.ph" class="profile-input">
+                            </div>
+                            <div class="profile-field">
+                                <label>Phone Number</label>
+                                <input type="tel" id="profilePhone" value="+254708344101" class="profile-input">
+                            </div>
+                            <div class="profile-field">
+                                <label>School</label>
+                                <input type="text" value="Bonuan Buquig National High School" class="profile-input" disabled>
+                            </div>
+                            <div class="profile-field">
+                                <label>Location</label>
+                                <input type="text" value="Dagupan, Ilocos, Philippines" class="profile-input" disabled>
+                            </div>
+                            <div class="profile-field">
+                                <label>Member Since</label>
+                                <input type="text" value="January 2024" class="profile-input" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn-save-profile" onclick="saveProfile()">💾 Save Changes</button>
+                        <button class="btn-cancel" onclick="cancelProfileEdit()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <h3>🔐 Account Settings</h3>
+                </div>
+                <div class="settings-card-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Change Password</h4>
+                            <p>Update your password to keep your account secure</p>
+                        </div>
+                        <button class="btn-setting" onclick="changePassword()">Change Password</button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Email Notifications</h4>
+                            <p>Receive updates about overdue books and new arrivals</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Two-Factor Authentication</h4>
+                            <p>Add an extra layer of security to your account</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Information -->
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <h3>ℹ️ System Information</h3>
+                </div>
+                <div class="settings-card-body">
+                    <div class="system-info-grid">
+                        <div class="info-item">
+                            <div class="info-label">System Version</div>
+                            <div class="info-value">1.1.0</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Last Login</div>
+                            <div class="info-value" id="lastLogin">Loading...</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Total Books Managed</div>
+                            <div class="info-value">3 books</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Total Members</div>
+                            <div class="info-value">2 members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="settings-card danger-card">
+                <div class="settings-card-header">
+                    <h3>⚠️ Danger Zone</h3>
+                </div>
+                <div class="settings-card-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Log Out</h4>
+                            <p>Sign out from your librarian account</p>
+                        </div>
+                        <button class="btn-logout" onclick="logout()">🚪 Log Out</button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Clear Cache</h4>
+                            <p>Clear temporary data and reset preferences</p>
+                        </div>
+                        <button class="btn-danger-secondary" onclick="clearCache()">Clear Cache</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">
+        Activate Windows<br>
+        Go to Settings to activate Windows
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Update last login on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            updateLastLogin();
+        });
+    </script>
+</body>
+</html>
